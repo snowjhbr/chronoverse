@@ -11,14 +11,14 @@ const feedback = ref('')
 
 // Catálogo da loja — itens compráveis com moedas
 const catalogo = [
-  { id: 1,  nome: 'Jaqueta Holográfica', icone: '🧥', preco: 30,  categoria: 'cosmetico', descricao: 'Visual holográfico exclusivo para seu avatar.', cor: '#A78BFA' },
-  { id: 2,  nome: 'Espada de Energia',   icone: '⚔️', preco: 50,  categoria: 'arma',      descricao: 'Lâmina de plasma com brilho neon.', cor: '#34D399' },
-  { id: 3,  nome: 'Núcleo de Dados',     icone: '🔮', preco: 40,  categoria: 'acessorio', descricao: 'Cristal que amplifica sua presença digital.', cor: '#F472B6' },
-  { id: 4,  nome: 'Botas Tech',          icone: '👟', preco: 25,  categoria: 'cosmetico', descricao: 'Tênis com propulsores de velocidade.', cor: '#38BDF8' },
-  { id: 5,  nome: 'Escudo Quantico',     icone: '🛡️', preco: 60,  categoria: 'defesa',    descricao: 'Barreira energética contra instabilidades.', cor: '#FBBF24' },
-  { id: 6,  nome: 'Óculos AR',           icone: '🥽', preco: 35,  categoria: 'acessorio', descricao: 'Realidade aumentada integrada à visão.', cor: '#A78BFA' },
-  { id: 7,  nome: 'Capa Neural',         icone: '🦾', preco: 45,  categoria: 'cosmetico', descricao: 'Interface neural wearable de última geração.', cor: '#34D399' },
-  { id: 8,  nome: 'Drone Companion',     icone: '🚁', preco: 80,  categoria: 'especial',  descricao: 'Companheiro autônomo que acompanha seu avatar.', cor: '#F472B6' },
+  { id: 1, nome: 'Jaqueta Holográfica', icone: '🧥', imagem: '/items/jaqueta.png', preco: 30, categoria: 'cosmetico', descricao: 'Visual holográfico exclusivo para seu avatar.', cor: '#A78BFA' },
+  { id: 2, nome: 'Espada de Energia', icone: '⚔️', imagem: '/items/espada.png', preco: 50, categoria: 'arma', descricao: 'Lâmina de plasma com brilho neon.', cor: '#34D399' },
+  { id: 3, nome: 'Núcleo de Dados', icone: '🔮', imagem: '/items/nucleo.png', preco: 40, categoria: 'acessorio', descricao: 'Cristal que amplifica sua presença digital.', cor: '#F472B6' },
+  { id: 4, nome: 'Botas Tech', icone: '👟', imagem: '/items/botas.png', preco: 25, categoria: 'cosmetico', descricao: 'Tênis com propulsores de velocidade.', cor: '#38BDF8' },
+  { id: 5, nome: 'Escudo Quantico', icone: '🛡️', preco: 60, categoria: 'defesa', descricao: 'Barreira energética contra instabilidades.', cor: '#FBBF24' },
+  { id: 6, nome: 'Óculos AR', icone: '🥽', preco: 35, categoria: 'acessorio', descricao: 'Realidade aumentada integrada à visão.', cor: '#A78BFA' },
+  { id: 7, nome: 'Capa Neural', icone: '🦾', preco: 45, categoria: 'cosmetico', descricao: 'Interface neural wearable de última geração.', cor: '#34D399' },
+  { id: 8, nome: 'Drone Companion', icone: '🚁', preco: 80, categoria: 'especial', descricao: 'Companheiro autônomo que acompanha seu avatar.', cor: '#F472B6' },
 ]
 
 const itensComprados = ref(
@@ -26,6 +26,14 @@ const itensComprados = ref(
 )
 
 const moedas = computed(() => store.avatar?.moedas ?? 0)
+
+const itensPossuidos = computed(() =>
+  catalogo.filter(i => jaComprou(i.id))
+)
+
+const itensDestaque = computed(() =>
+  catalogo.filter(item => item.imagem).slice(0, 4)
+)
 
 function jaComprou(id) {
   return itensComprados.value.includes(id)
@@ -65,10 +73,6 @@ async function comprar(item) {
     setTimeout(() => feedback.value = '', 3000)
   }
 }
-
-const itensPossuidos = computed(() =>
-  catalogo.filter(i => jaComprou(i.id))
-)
 </script>
 
 <template>
@@ -94,28 +98,43 @@ const itensPossuidos = computed(() =>
           @click="itemSelecionado = item"
           class="hover:scale-95 transition-all cursor-pointer"
         >
-          <div class="w-full aspect-square rounded-lg flex items-center justify-center text-2xl"
-            :style="{ background: item.cor + '22', border: '1px solid ' + item.cor + '44' }">
-            {{ item.icone }}
+          <div
+            class="w-full aspect-square rounded-lg overflow-hidden flex items-center justify-center text-2xl"
+            :style="{ background: item.cor + '22', border: '1px solid ' + item.cor + '44' }"
+          >
+            <img
+              v-if="item.imagem"
+              :src="item.imagem"
+              :alt="item.nome"
+              class="w-full h-full object-cover"
+            >
+            <span v-else>{{ item.icone }}</span>
           </div>
           <span class="text-[10px] block text-center mt-1 text-[#A0A0C0] truncate">{{ item.nome }}</span>
         </div>
       </div>
     </div>
 
-    <!-- SLOTS VAZIOS se não tiver itens -->
     <div v-else class="grid grid-cols-4 gap-3 mb-4">
-      <div v-for="i in 4" :key="i" class="hover:scale-95 transition-all cursor-pointer opacity-40">
-        <div class="w-full aspect-square rounded-lg bg-[#2A2A4A] animate-pulse flex items-center justify-center">
-          <span class="text-[#3a3a5a] text-lg">?</span>
+      <div
+        v-for="item in itensDestaque"
+        :key="item.id"
+        @click="itemSelecionado = item"
+        class="hover:scale-95 transition-all cursor-pointer"
+      >
+        <div
+          class="w-full aspect-square rounded-lg overflow-hidden flex items-center justify-center"
+          :style="{ background: item.cor + '18', border: '1px solid ' + item.cor + '33' }"
+        >
+          <img :src="item.imagem" :alt="item.nome" class="w-full h-full object-cover">
         </div>
-        <span class="text-[10px] block text-center mt-1 text-[#505070]">Vazio</span>
+        <span class="text-[10px] block text-center mt-1 text-[#A0A0C0] truncate">{{ item.nome }}</span>
       </div>
     </div>
 
     <!-- LOJA -->
     <div>
-      <div class="text-[10px] text-[#505070] tracking-widest mb-2">LOJA — COMPRAR COM MOEDAS</div>
+      <div class="text-[10px] text-[#505070] tracking-widest mb-2">LOJA - COMPRAR COM MOEDAS</div>
       <div class="text-[9px] text-[#3a3a5a] mb-3">
         Moedas são ganhas apenas em eventos verificados por plataformas conectadas.
       </div>
@@ -131,9 +150,17 @@ const itensPossuidos = computed(() =>
               ? 'border-[#16162A] hover:border-[#534AB7]/50 hover:bg-[#1a1a30]'
               : 'border-[#16162A] opacity-40 cursor-not-allowed'"
         >
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center text-lg shrink-0"
-            :style="{ background: item.cor + '22', border: '1px solid ' + item.cor + '33' }">
-            {{ item.icone }}
+          <div
+            class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center text-lg shrink-0"
+            :style="{ background: item.cor + '22', border: '1px solid ' + item.cor + '33' }"
+          >
+            <img
+              v-if="item.imagem"
+              :src="item.imagem"
+              :alt="item.nome"
+              class="w-full h-full object-cover"
+            >
+            <span v-else>{{ item.icone }}</span>
           </div>
           <div class="flex-1 min-w-0">
             <div class="text-[11px] font-medium truncate">{{ item.nome }}</div>
@@ -157,9 +184,17 @@ const itensPossuidos = computed(() =>
       @click.self="itemSelecionado = null">
       <div class="bg-[#0F0F1E] border-2 border-[#16162A] rounded-xl p-6 w-72 shadow-2xl">
         <div class="flex flex-col items-center gap-3 mb-4">
-          <div class="w-20 h-20 rounded-xl flex items-center justify-center text-4xl"
-            :style="{ background: itemSelecionado.cor + '22', border: '2px solid ' + itemSelecionado.cor + '55' }">
-            {{ itemSelecionado.icone }}
+          <div
+            class="w-20 h-20 rounded-xl overflow-hidden flex items-center justify-center text-4xl"
+            :style="{ background: itemSelecionado.cor + '22', border: '2px solid ' + itemSelecionado.cor + '55' }"
+          >
+            <img
+              v-if="itemSelecionado.imagem"
+              :src="itemSelecionado.imagem"
+              :alt="itemSelecionado.nome"
+              class="w-full h-full object-cover"
+            >
+            <span v-else>{{ itemSelecionado.icone }}</span>
           </div>
           <div class="text-center">
             <div class="font-bold text-lg">{{ itemSelecionado.nome }}</div>
