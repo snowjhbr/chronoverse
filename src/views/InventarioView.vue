@@ -27,52 +27,235 @@ const ordenacoes = [
 
 // Catálogo de itens
 const todosItens = ref([
-  { id: 1,  nome: 'Jaqueta Holo',      tipo: 'equipamentos', raridade: 'ÉPICO',   icone: '🧥', quantidade: 1,  cor: '#A78BFA',
-    atributos: [{ label: 'XP ganho', valor: '+15%' }, { label: 'Reputação', valor: '+10%' }, { label: 'Resistência', valor: '+5%' }],
+  {
+    id: 1,
+    nome: 'Jaqueta Holo',
+    tipo: 'equipamentos',
+    raridade: 'ÉPICO',
+    imagem: 'public/items/jaqueta_holo.png',
+    quantidade: 1,
+    cor: '#A78BFA',
+    atributos: [
+      { label: 'XP ganho', valor: '+15%' },
+      { label: 'Reputação', valor: '+10%' },
+      { label: 'Resistência', valor: '+5%' }
+    ],
     desc: 'Jaqueta com tecnologia holográfica que se adapta ao seu estilo e aumenta sua presença digital.',
-    equipadoPor: true },
-  { id: 2,  nome: 'Tênis Vórtice',     tipo: 'equipamentos', raridade: 'ÉPICO',   icone: '👟', quantidade: 1,  cor: '#A78BFA',
-    atributos: [{ label: 'Velocidade', valor: '+20%' }, { label: 'Foco', valor: '+8%' }],
-    desc: 'Calçado com propulsores de velocidade integrados para maior mobilidade digital.', equipadoPor: false },
-  { id: 3,  nome: 'Cristal de XP',     tipo: 'recursos',     raridade: 'ÉPICO',   icone: '💎', quantidade: 15, cor: '#A78BFA',
-    atributos: [{ label: 'XP bonus', valor: '+500' }],
-    desc: 'Cristal energético que concede uma explosão de experiência ao ser consumido.', equipadoPor: false },
-  { id: 4,  nome: 'Fone Nebuloso',     tipo: 'cosmeticos',   raridade: 'RARO',    icone: '🎧', quantidade: 1,  cor: '#38BDF8',
-    atributos: [{ label: 'Carisma', valor: '+12%' }, { label: 'Criatividade', valor: '+8%' }],
-    desc: 'Fone com realidade aumentada que amplifica percepção musical e social.', equipadoPor: false },
-  { id: 5,  nome: 'Caixa de Energia',  tipo: 'consumiveis',  raridade: 'RARO',    icone: '📦', quantidade: 3,  cor: '#38BDF8',
-    atributos: [{ label: 'Energia', valor: '+100%' }],
-    desc: 'Caixa misteriosa com itens aleatórios de raridade variável.', equipadoPor: false },
-  { id: 6,  nome: 'Óculos Cibernético',tipo: 'cosmeticos',   raridade: 'RARO',    icone: '🥽', quantidade: 1,  cor: '#38BDF8',
-    atributos: [{ label: 'Percepção', valor: '+18%' }, { label: 'Inteligência', valor: '+10%' }],
-    desc: 'Óculos AR com interface neural para análise em tempo real do ambiente.', equipadoPor: false },
-  { id: 7,  nome: 'Token de Evento',   tipo: 'recursos',     raridade: 'RARO',    icone: '🏅', quantidade: 7,  cor: '#38BDF8',
-    atributos: [{ label: 'Acesso', valor: 'Eventos VIP' }],
-    desc: 'Token que garante acesso prioritário a eventos exclusivos da plataforma.', equipadoPor: false },
-  { id: 8,  nome: 'Poção de XP',       tipo: 'consumiveis',  raridade: 'INCOMUM', icone: '🧪', quantidade: 5,  cor: '#34D399',
-    atributos: [{ label: 'XP bonus', valor: '+200' }],
-    desc: 'Poção alquímica que concede uma dose concentrada de experiência.', equipadoPor: false },
-  { id: 9,  nome: 'Emblema de Honra',  tipo: 'colecionaveis',raridade: 'INCOMUM', icone: '🛡️', quantidade: 2,  cor: '#34D399',
-    atributos: [{ label: 'Reputação', valor: '+5%' }],
-    desc: 'Emblema concedido a usuários que demonstraram conduta exemplar.', equipadoPor: false },
-  { id: 10, nome: 'Spray Grafite',     tipo: 'cosmeticos',   raridade: 'INCOMUM', icone: '🎨', quantidade: 3,  cor: '#34D399',
-    atributos: [{ label: 'Criatividade', valor: '+15%' }],
-    desc: 'Spray digital para personalizar ambientes e deixar sua marca.', equipadoPor: false },
-  { id: 11, nome: 'Fragmento Tech',    tipo: 'recursos',     raridade: 'COMUM',   icone: '🔧', quantidade: 12, cor: '#6B6B8A',
-    atributos: [{ label: 'Crafting', valor: '+1 material' }],
-    desc: 'Fragmento tecnológico usado para crafting de equipamentos avançados.', equipadoPor: false },
-  { id: 12, nome: 'Bateria de Energia',tipo: 'consumiveis',  raridade: 'COMUM',   icone: '🔋', quantidade: 8,  cor: '#6B6B8A',
-    atributos: [{ label: 'Stamina', valor: '+50%' }],
-    desc: 'Bateria de alta capacidade para recarregar habilidades esgotadas.', equipadoPor: false },
-  { id: 13, nome: 'Moeda Nexus',       tipo: 'recursos',     raridade: 'COMUM',   icone: '🪙', quantidade: 25, cor: '#FBBF24',
-    atributos: [{ label: 'Valor', valor: '1 Nexus' }],
-    desc: 'Moeda digital universal aceita em todos os mercados do Chronoverse.', equipadoPor: false },
-  { id: 14, nome: 'Chip de Dados',     tipo: 'recursos',     raridade: 'COMUM',   icone: '💾', quantidade: 10, cor: '#6B6B8A',
-    atributos: [{ label: 'Armazenamento', valor: '+10 slots' }],
-    desc: 'Chip de memória que expande a capacidade de armazenamento do avatar.', equipadoPor: false },
-  { id: 15, nome: 'Chave de Acesso',   tipo: 'colecionaveis',raridade: 'COMUM',   icone: '🗝️', quantidade: 4,  cor: '#6B6B8A',
-    atributos: [{ label: 'Acesso', valor: 'Área secreta' }],
-    desc: 'Chave misteriosa que abre portas para áreas escondidas da plataforma.', equipadoPor: false },
+    equipadoPor: true
+  },
+
+  {
+    id: 2,
+    nome: 'Tênis Vórtice',
+    tipo: 'equipamentos',
+    raridade: 'ÉPICO',
+    imagem: '/items/tenis_vortice.png',
+    quantidade: 1,
+    cor: '#A78BFA',
+    atributos: [
+      { label: 'Velocidade', valor: '+20%' },
+      { label: 'Foco', valor: '+8%' }
+    ],
+    desc: 'Calçado com propulsores de velocidade integrados para maior mobilidade digital.',
+    equipadoPor: false
+  },
+
+  {
+    id: 3,
+    nome: 'Cristal de XP',
+    tipo: 'recursos',
+    raridade: 'ÉPICO',
+    imagem: '/items/cristal_xp.png',
+    quantidade: 15,
+    cor: '#A78BFA',
+    atributos: [
+      { label: 'XP bônus', valor: '+500' }
+    ],
+    desc: 'Cristal energético que concede uma explosão de experiência ao ser consumido.',
+    equipadoPor: false
+  },
+
+  {
+    id: 4,
+    nome: 'Fone Nebuloso',
+    tipo: 'cosmeticos',
+    raridade: 'RARO',
+    imagem: '/items/fone_nebuloso.png',
+    quantidade: 1,
+    cor: '#38BDF8',
+    atributos: [
+      { label: 'Carisma', valor: '+12%' },
+      { label: 'Criatividade', valor: '+8%' }
+    ],
+    desc: 'Fone com realidade aumentada que amplifica percepção musical e social.',
+    equipadoPor: false
+  },
+
+  {
+    id: 5,
+    nome: 'Caixa de Energia',
+    tipo: 'consumiveis',
+    raridade: 'RARO',
+    imagem: '/items/caixa_energia.png',
+    quantidade: 3,
+    cor: '#38BDF8',
+    atributos: [
+      { label: 'Energia', valor: '+100%' }
+    ],
+    desc: 'Caixa misteriosa com itens aleatórios de raridade variável.',
+    equipadoPor: false
+  },
+
+  {
+    id: 6,
+    nome: 'Óculos Cibernético',
+    tipo: 'cosmeticos',
+    raridade: 'RARO',
+    imagem: '/items/oculos_cibernetico.png',
+    quantidade: 1,
+    cor: '#38BDF8',
+    atributos: [
+      { label: 'Percepção', valor: '+18%' },
+      { label: 'Inteligência', valor: '+10%' }
+    ],
+    desc: 'Óculos AR com interface neural para análise em tempo real do ambiente.',
+    equipadoPor: false
+  },
+
+  {
+    id: 7,
+    nome: 'Token de Evento',
+    tipo: 'recursos',
+    raridade: 'RARO',
+    imagem: '/items/token_evento.png',
+    quantidade: 7,
+    cor: '#38BDF8',
+    atributos: [
+      { label: 'Acesso', valor: 'Eventos VIP' }
+    ],
+    desc: 'Token que garante acesso prioritário a eventos exclusivos da plataforma.',
+    equipadoPor: false
+  },
+
+  {
+    id: 8,
+    nome: 'Poção de XP',
+    tipo: 'consumiveis',
+    raridade: 'INCOMUM',
+    imagem: '/items/pocao_xp.png',
+    quantidade: 5,
+    cor: '#34D399',
+    atributos: [
+      { label: 'XP bônus', valor: '+200' }
+    ],
+    desc: 'Poção alquímica que concede uma dose concentrada de experiência.',
+    equipadoPor: false
+  },
+
+  {
+    id: 9,
+    nome: 'Emblema de Honra',
+    tipo: 'colecionaveis',
+    raridade: 'INCOMUM',
+    imagem: '/items/emblema_honra.png',
+    quantidade: 2,
+    cor: '#34D399',
+    atributos: [
+      { label: 'Reputação', valor: '+5%' }
+    ],
+    desc: 'Emblema concedido a usuários que demonstraram conduta exemplar.',
+    equipadoPor: false
+  },
+
+  {
+    id: 10,
+    nome: 'Spray Grafite',
+    tipo: 'cosmeticos',
+    raridade: 'INCOMUM',
+    imagem: '/items/spray_grafiti.png',
+    quantidade: 3,
+    cor: '#34D399',
+    atributos: [
+      { label: 'Criatividade', valor: '+15%' }
+    ],
+    desc: 'Spray digital para personalizar ambientes e deixar sua marca.',
+    equipadoPor: false
+  },
+
+  {
+    id: 11,
+    nome: 'Fragmento Tech',
+    tipo: 'recursos',
+    raridade: 'COMUM',
+    imagem: '/items/fragmento_tech.png',
+    quantidade: 12,
+    cor: '#6B6B8A',
+    atributos: [
+      { label: 'Crafting', valor: '+1 material' }
+    ],
+    desc: 'Fragmento tecnológico usado para crafting de equipamentos avançados.',
+    equipadoPor: false
+  },
+
+  {
+    id: 12,
+    nome: 'Bateria de Energia',
+    tipo: 'consumiveis',
+    raridade: 'COMUM',
+    imagem: '/items/bateria_energia.png',
+    quantidade: 8,
+    cor: '#6B6B8A',
+    atributos: [
+      { label: 'Stamina', valor: '+50%' }
+    ],
+    desc: 'Bateria de alta capacidade para recarregar habilidades esgotadas.',
+    equipadoPor: false
+  },
+
+  {
+    id: 13,
+    nome: 'Moeda Nexus',
+    tipo: 'recursos',
+    raridade: 'COMUM',
+    imagem: '/items/moeda_nexus.png',
+    quantidade: 25,
+    cor: '#FBBF24',
+    atributos: [
+      { label: 'Valor', valor: '1 Nexus' }
+    ],
+    desc: 'Moeda digital universal aceita em todos os mercados do Chronoverse.',
+    equipadoPor: false
+  },
+
+  {
+    id: 14,
+    nome: 'Chip de Dados',
+    tipo: 'recursos',
+    raridade: 'COMUM',
+    imagem: '/items/chip_dados.png',
+    quantidade: 10,
+    cor: '#6B6B8A',
+    atributos: [
+      { label: 'Armazenamento', valor: '+10 slots' }
+    ],
+    desc: 'Chip de memória que expande a capacidade de armazenamento do avatar.',
+    equipadoPor: false
+  },
+
+  {
+    id: 15,
+    nome: 'Chave de Acesso',
+    tipo: 'colecionaveis',
+    raridade: 'COMUM',
+    imagem: '/items/chave_acesso.png',
+    quantidade: 4,
+    cor: '#6B6B8A',
+    atributos: [
+      { label: 'Acesso', valor: 'Área secreta' }
+    ],
+    desc: 'Chave misteriosa que abre portas para áreas escondidas da plataforma.',
+    equipadoPor: false
+  }
 ])
 
 const raridades = { 'ÉPICO': 0, 'RARO': 1, 'INCOMUM': 2, 'COMUM': 3 }
@@ -217,8 +400,13 @@ const moedas      = computed(() => store.avatar?.moedas ?? 0)
             :style="{ '--cor': coresRaridade[item.raridade] }"
             @click="itemAtivo = item">
             <div class="item-qtd" v-if="item.quantidade > 1">{{ item.quantidade }}</div>
-            <div class="item-icone">{{ item.icone }}</div>
-            <div class="item-nome">{{ item.nome }}</div>
+            <div class="item-icone">
+              <img
+                :src="item.imagem"
+                :alt="item.nome"
+                class="item-img"
+              />
+            </div>            <div class="item-nome">{{ item.nome }}</div>
             <div class="item-raridade" :style="{ color: coresRaridade[item.raridade] }">{{ item.raridade }}</div>
           </div>
         </div>
@@ -256,7 +444,13 @@ const moedas      = computed(() => store.avatar?.moedas ?? 0)
       <!-- IMAGEM DO ITEM -->
       <div class="rp-item-img" :style="{ '--cor': coresRaridade[itemSelecionado.raridade] }">
         <div class="rp-item-glow"></div>
-        <div class="rp-item-ico">{{ itemSelecionado.icone }}</div>
+        <div class="rp-item-ico">
+          <img
+            :src="itemSelecionado.imagem"
+            :alt="itemSelecionado.nome"
+            class="rp-item-image"
+          />
+        </div>      
       </div>
 
       <!-- ATRIBUTOS -->

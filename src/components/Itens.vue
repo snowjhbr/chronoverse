@@ -11,14 +11,78 @@ const feedback = ref('')
 
 // Catálogo da loja — itens compráveis com moedas
 const catalogo = [
-  { id: 1, nome: 'Jaqueta Holográfica', icone: '🧥', imagem: '/items/jaqueta.png', preco: 30, categoria: 'cosmetico', descricao: 'Visual holográfico exclusivo para seu avatar.', cor: '#A78BFA' },
-  { id: 2, nome: 'Espada de Energia', icone: '⚔️', imagem: '/items/espada.png', preco: 50, categoria: 'arma', descricao: 'Lâmina de plasma com brilho neon.', cor: '#34D399' },
-  { id: 3, nome: 'Núcleo de Dados', icone: '🔮', imagem: '/items/nucleo.png', preco: 40, categoria: 'acessorio', descricao: 'Cristal que amplifica sua presença digital.', cor: '#F472B6' },
-  { id: 4, nome: 'Botas Tech', icone: '👟', imagem: '/items/botas.png', preco: 25, categoria: 'cosmetico', descricao: 'Tênis com propulsores de velocidade.', cor: '#38BDF8' },
-  { id: 5, nome: 'Escudo Quantico', icone: '🛡️', preco: 60, categoria: 'defesa', descricao: 'Barreira energética contra instabilidades.', cor: '#FBBF24' },
-  { id: 6, nome: 'Óculos AR', icone: '🥽', preco: 35, categoria: 'acessorio', descricao: 'Realidade aumentada integrada à visão.', cor: '#A78BFA' },
-  { id: 7, nome: 'Capa Neural', icone: '🦾', preco: 45, categoria: 'cosmetico', descricao: 'Interface neural wearable de última geração.', cor: '#34D399' },
-  { id: 8, nome: 'Drone Companion', icone: '🚁', preco: 80, categoria: 'especial', descricao: 'Companheiro autônomo que acompanha seu avatar.', cor: '#F472B6' },
+  {
+    id: 1,
+    nome: 'Jaqueta Holográfica',
+    imagem: '/items/jaqueta_holo.png',
+    preco: 30,
+    categoria: 'cosmetico',
+    descricao: 'Visual holográfico exclusivo para seu avatar.',
+    cor: '#A78BFA'
+  },
+  {
+    id: 2,
+    nome: 'Espada de Energia',
+    imagem: '/items/espada.png',
+    preco: 50,
+    categoria: 'arma',
+    descricao: 'Lâmina de plasma com brilho neon.',
+    cor: '#34D399'
+  },
+  {
+    id: 3,
+    nome: 'Núcleo de Dados',
+    imagem: '/items/nucleo.png',
+    preco: 40,
+    categoria: 'acessorio',
+    descricao: 'Cristal que amplifica sua presença digital.',
+    cor: '#F472B6'
+  },
+  {
+    id: 4,
+    nome: 'Botas Tech',
+    imagem: '/items/botas.png',
+    preco: 25,
+    categoria: 'cosmetico',
+    descricao: 'Tênis com propulsores de velocidade.',
+    cor: '#38BDF8'
+  },
+  {
+    id: 5,
+    nome: 'Escudo Quantico',
+    imagem: '/items/Escudo_Quantico.png',
+    preco: 60,
+    categoria: 'defesa',
+    descricao: 'Barreira energética contra instabilidades.',
+    cor: '#FBBF24'
+  },
+  {
+    id: 6,
+    nome: 'Óculos AR',
+    imagem: '/items/oculos_ar.png',
+    preco: 35,
+    categoria: 'acessorio',
+    descricao: 'Realidade aumentada integrada à visão.',
+    cor: '#A78BFA'
+  },
+  {
+    id: 7,
+    nome: 'Capa Neural',
+    imagem: '/items/jaqueta.png',
+    preco: 45,
+    categoria: 'cosmetico',
+    descricao: 'Interface neural wearable de última geração.',
+    cor: '#34D399'
+  },
+  {
+    id: 8,
+    nome: 'Drone Companion',
+    imagem: '/items/drone_companion.png',
+    preco: 80,
+    categoria: 'especial',
+    descricao: 'Companheiro autônomo que acompanha seu avatar.',
+    cor: '#F472B6'
+  }
 ]
 
 const itensComprados = ref(
