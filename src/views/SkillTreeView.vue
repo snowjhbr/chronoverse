@@ -105,48 +105,63 @@ const categorias = [
 
 const arvore = {
   criatividade: {
-    id: 'criatividade', label: 'CRIATIVIDADE', cor: '#A78BFA', icone: '💡',
+    id: 'criatividade',
+    label: 'CRIATIVIDADE',
+    cor: '#A78BFA',
+    imagem: '/skills/design.png',
     habilidade: 'criatividade',
     filhos: [
-      { id: 'design',      label: 'Design',      icone: '✏️', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
-      { id: 'fotografia',  label: 'Fotografia',  icone: '📷', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
-      { id: 'musica',      label: 'Música',      icone: '🎵', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
+      { id: 'design',      label: 'Design',      imagem: '/skills/design.png', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
+      { id: 'fotografia',  label: 'Fotografia',  imagem: '/skills/fotografia.png', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
+      { id: 'musica',      label: 'Música',      imagem: '/skills/musica.png', cor: '#A78BFA', habilidade: 'criatividade', filhos: [] },
     ]
   },
   conhecimento: {
-    id: 'conhecimento', label: 'CONHECIMENTO', cor: '#38BDF8', icone: '📚',
+    id: 'conhecimento',
+    label: 'CONHECIMENTO',
+    cor: '#38BDF8',
+    imagem: '/skills/ciencia.png',
     habilidade: 'inteligencia',
     filhos: [
-      { id: 'academia',    label: 'Academia',    icone: '🎓', cor: '#38BDF8', habilidade: 'inteligencia', filhos: [] },
-      { id: 'ciencia',     label: 'Ciência',     icone: '🧪', cor: '#38BDF8', habilidade: 'inteligencia', filhos: [] },
-      { id: 'pesquisa',    label: 'Pesquisa',    icone: '🔍', cor: '#38BDF8', habilidade: 'sabedoria',    filhos: [] },
+      { id: 'academia',    label: 'Academia',    imagem: '/skills/academia.png', cor: '#38BDF8', habilidade: 'inteligencia', filhos: [] },
+      { id: 'ciencia',     label: 'Ciência',     imagem: '/skills/ciencia.png', cor: '#38BDF8', habilidade: 'inteligencia', filhos: [] },
+      { id: 'pesquisa',    label: 'Pesquisa',    imagem: '/skills/pesquisa.png', cor: '#38BDF8', habilidade: 'sabedoria',    filhos: [] },
     ]
   },
   social: {
-    id: 'social', label: 'SOCIAL', cor: '#F472B6', icone: '👥',
+    id: 'social',
+    label: 'SOCIAL',
+    cor: '#F472B6',
+    imagem: '/skills/lideranca.png',
     habilidade: 'carisma',
     filhos: [
-      { id: 'comunicacao', label: 'Comunicação', icone: '💬', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
-      { id: 'lideranca',   label: 'Liderança',   icone: '🤝', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
-      { id: 'empatia',     label: 'Empatia',     icone: '❤️', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
+      { id: 'comunicacao', label: 'Comunicação', imagem: '/skills/comunicacao.png', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
+      { id: 'lideranca',   label: 'Liderança',   imagem: '/skills/lideranca.png', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
+      { id: 'empatia',     label: 'Empatia',     imagem: '/skills/empatia.png', cor: '#F472B6', habilidade: 'carisma', filhos: [] },
     ]
   },
   tecnologia: {
-    id: 'tecnologia', label: 'TECNOLOGIA', cor: '#34D399', icone: '🖥️',
+    id: 'tecnologia',
+    label: 'TECNOLOGIA',
+    cor: '#34D399',
+    imagem: '/skills/tecnologia.png',
     habilidade: 'inteligencia',
     filhos: [
-      { id: 'programacao', label: 'Código',      icone: '</>', cor: '#34D399', habilidade: 'inteligencia', filhos: [] },
-      { id: 'hardware',    label: 'Hardware',    icone: '⚙️', cor: '#34D399', habilidade: 'inteligencia', filhos: [] },
-      { id: 'seguranca',   label: 'Segurança',   icone: '🔒', cor: '#34D399', habilidade: 'foco',         filhos: [] },
+      { id: 'programacao', label: 'Código',      imagem: '/skills/codigo.png', cor: '#34D399', habilidade: 'inteligencia', filhos: [] },
+      { id: 'hardware',    label: 'Hardware',    imagem: '/skills/hardware.png', cor: '#34D399', habilidade: 'inteligencia', filhos: [] },
+      { id: 'seguranca',   label: 'Segurança',   imagem: '/skills/seguranca.png', cor: '#34D399', habilidade: 'foco',         filhos: [] },
     ]
   },
   fisico: {
-    id: 'fisico', label: 'FÍSICO', cor: '#FBBF24', icone: '🏋️',
+    id: 'fisico',
+    label: 'FÍSICO',
+    cor: '#FBBF24',
+    imagem: '/skills/fisico.png',
     habilidade: 'resistencia',
     filhos: [
-      { id: 'atletismo',   label: 'Atletismo',   icone: '🏃', cor: '#FBBF24', habilidade: 'resistencia', filhos: [] },
-      { id: 'defesa',      label: 'Defesa',      icone: '🛡️', cor: '#FBBF24', habilidade: 'resistencia', filhos: [] },
-      { id: 'nutricao',    label: 'Nutrição',    icone: '🍎', cor: '#FBBF24', habilidade: 'disciplina',  filhos: [] },
+      { id: 'atletismo',   label: 'Atletismo',   imagem: '/skills/atletismo.png', cor: '#FBBF24', habilidade: 'resistencia', filhos: [] },
+      { id: 'defesa',      label: 'Defesa',      imagem: '/skills/defesa.png', cor: '#FBBF24', habilidade: 'resistencia', filhos: [] },
+      { id: 'nutricao',    label: 'Nutrição',    imagem: '/skills/nutricao.png', cor: '#FBBF24', habilidade: 'disciplina',  filhos: [] },
     ]
   }
 }
@@ -420,8 +435,9 @@ function nivelLabel(habilidade) {
             :style="{ ...posNodo(cat.id), '--cor': cat.cor }"
             @click="selecionarSkill(cat)">
             <div class="hexagon" :style="{ '--cor': cat.cor }">
-              <span class="nodo-icone">{{ cat.icone }}</span>
-            </div>
+            <span class="nodo-icone">
+              <img :src="cat.imagem" :alt="cat.label" class="skill-img-root">
+            </span>            </div>
             <div class="nodo-nivel" :style="{ color: cat.cor }">{{ nivelLabel(cat.habilidade) }}</div>
             <div class="nodo-glow" :style="{ background: cat.cor + '30' }"></div>
           </div>
@@ -438,8 +454,9 @@ function nivelLabel(habilidade) {
             :style="{ ...posNodo(filho.id), '--cor': filho.cor }"
             @click="selecionarSkill(filho)">
             <div class="hexagon-sm" :style="{ '--cor': filho.cor }">
-              <span class="nodo-icone-sm">{{ filho.icone }}</span>
-            </div>
+            <span class="nodo-icone-sm">
+              <img :src="filho.imagem" :alt="filho.label" class="skill-img-child">
+            </span>            </div>
             <div class="nodo-nivel-sm" :style="{ color: filho.cor }">{{ nivelLabel(filho.habilidade) }}</div>
           </div>
         </template>
@@ -456,7 +473,11 @@ function nivelLabel(habilidade) {
       <template v-if="skillSelecionada">
         <div class="skill-header">
           <div class="hexagon-big" :style="{ '--cor': skillSelecionada.cor }">
-            {{ skillSelecionada.icone }}
+            <img
+              :src="skillSelecionada.imagem"
+              :alt="skillSelecionada.label"
+              class="skill-img-big"
+            >
           </div>
           <div>
             <div class="skill-cat-label" :style="{ color: skillSelecionada.cor }">
@@ -525,7 +546,13 @@ function nivelLabel(habilidade) {
         <div class="skills-ativas">
           <div v-for="cat in Object.values(arvore).slice(0, 5)" :key="cat.id"
             class="skill-ativa-item" :style="{ '--cor': cat.cor }" @click="selecionarSkill(cat)">
-            <div class="sa-hex" :style="{ '--cor': cat.cor }">{{ cat.icone }}</div>
+            <div class="sa-hex" :style="{ '--cor': cat.cor }">
+              <img
+                :src="cat.imagem"
+                :alt="cat.label"
+                class="skill-img-active"
+              >
+            </div>
             <div class="sa-lvl" :style="{ color: cat.cor }">Nvl. {{ getNivel(cat.habilidade) }}</div>
           </div>
           <button class="sa-more">›</button>
@@ -541,7 +568,13 @@ function nivelLabel(habilidade) {
         <div class="skills-ativas">
           <div v-for="cat in Object.values(arvore).slice(0, 5)" :key="cat.id"
             class="skill-ativa-item" :style="{ '--cor': cat.cor }" @click="selecionarSkill(cat)">
-            <div class="sa-hex" :style="{ '--cor': cat.cor }">{{ cat.icone }}</div>
+            <div class="sa-hex" :style="{ '--cor': cat.cor }">
+              <img
+                :src="cat.imagem"
+                :alt="cat.label"
+                class="skill-img-active"
+              >
+            </div>
             <div class="sa-lvl" :style="{ color: cat.cor }">Nvl. {{ getNivel(cat.habilidade) }}</div>
           </div>
           <button class="sa-more">›</button>
@@ -553,7 +586,13 @@ function nivelLabel(habilidade) {
     <div v-if="mostrarRecompensas && skillSelecionada" class="modal-overlay" @click.self="mostrarRecompensas = false">
       <div class="modal-box">
         <div class="modal-header" :style="{ borderColor: skillSelecionada.cor + '44' }">
-          <div class="modal-ico" :style="{ '--cor': skillSelecionada.cor }">{{ skillSelecionada.icone }}</div>
+          <div class="modal-ico" :style="{ '--cor': skillSelecionada.cor }">
+            <img
+              :src="skillSelecionada.imagem"
+              :alt="skillSelecionada.label"
+              class="skill-img-modal"
+            >
+          </div>
           <div>
             <div class="modal-title">Recompensas — {{ skillSelecionada.label }}</div>
             <div class="modal-sub" :style="{ color: skillSelecionada.cor }">
@@ -720,4 +759,34 @@ function nivelLabel(habilidade) {
 .modal-item-desc { font-size: 10px; color: #6B6B8A; margin-top: 2px; }
 .status-ok { font-size: 10px; color: #34D399; white-space: nowrap; }
 .status-lock { font-size: 10px; color: #4E4B6B; white-space: nowrap; }
+
+.skill-img-root {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.skill-img-child {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.skill-img-big {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.skill-img-active {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.skill-img-modal {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
 </style>
